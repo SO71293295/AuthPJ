@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/loginForm").permitAll()  // /loginForm allows access from all users
                 .anyRequest().authenticated();          // /Except for loginForm, which requires authentication
 
-        // ログイン設定
+        // Set up login
         http.formLogin()                                // Enable form authentication
                 .loginPage("/loginForm")                // Password to display login form
                 .loginProcessingUrl("/authenticate")    // Password of the form authentication process
@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home")             // Default password to transition to on successful authentication
                 .failureUrl("/loginForm?error=true");   // Password to be transitioned to in the event of authentication failure
 
-        // ログアウト設定
+        // Set up logout
         http.logout()
                 .logoutSuccessUrl("/loginForm")         // Password to be transitioned to on successful logout
                 .permitAll();                           // Access allows to all users
