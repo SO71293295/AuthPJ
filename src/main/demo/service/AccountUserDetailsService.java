@@ -21,19 +21,19 @@ public class AccountUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName)
-            throws UsernameNotFoundException {          // データベースからアカウント情報を検索するメソッド
+            throws UsernameNotFoundException {          // Methods for retrieving account information from the database
 
         if (userName == null || "".equals(userName)) {
             throw new UsernameNotFoundException(userName + "is not found");
         }
 
-        // User一件を取得 userNameが無ければ例外発生
+        // Get a single User If there is no userName, an exception is raised
         try {
-            // Userを取得
+            // Get a User
             MyUser myUser = userDao.findUserByUserName(userName);
 
             if (myUser != null) {
-                return new AccountUserDetails(myUser); // UserDetailsの実装クラスを生成
+                return new AccountUserDetails(myUser); // Generate UserDetails implementation class
 
             } else {
                 throw new UsernameNotFoundException(userName + "is not found");
