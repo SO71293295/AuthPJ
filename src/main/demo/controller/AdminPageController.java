@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AdminPageController {
     @GetMapping("/adminPage")
-    @PreAuthorize("hasRole('ROLE_ADMIN')") // ROLE_ADMINのユーザのみアクセスを許可
+    @PreAuthorize("hasRole('ROLE_ADMIN')") // Allow ROLE_ADMIN access
     public String adminPage() {
         return "adminPage";
     }
