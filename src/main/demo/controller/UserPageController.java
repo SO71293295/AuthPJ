@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UserPageController {
     @GetMapping("/userPage")
-    @PreAuthorize("hasRole('ROLE_USER')") // ROLE_USERのユーザのみアクセスを許可
+    @PreAuthorize("hasRole('ROLE_USER')") // Allow ROLE_USER access
     public String userPage() {
         return "userPage";
     }
