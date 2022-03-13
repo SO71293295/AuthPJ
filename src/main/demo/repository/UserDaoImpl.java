@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * userNameを検索条件にSELECT文を実行して、DBに登録されているユーザを検索する
+     * Execute a SELECT statement using userName as the search condition to search for users registered in the DB
      * @param userName
      * @return User
      */
@@ -26,17 +26,17 @@ public class UserDaoImpl implements UserDao {
     public MyUser findUserByUserName(String userName) {
         String sql = "SELECT username, password, name, rolename FROM users WHERE username = ?";
 
-        //ユーザを一件取得
+        //Get one user
         Map<String, Object> result = jdbcTemplate.queryForMap(sql, userName);
 
-        // Entityクラス(User型)に変換
+        //Convert to Entity class (type User)
         MyUser user = convMapToUser(result);
 
         return user;
     }
 
     /**
-     * SQL SELECT文を実行した結果(Map<String, Object>)をUser型に変換する
+     * Convert the result of executing an SQL SELECT statement (Map<String, Object>) into a User type
      * @param Map<String, Object>
      * @return User
      */
