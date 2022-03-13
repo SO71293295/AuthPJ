@@ -9,8 +9,8 @@
     <h1>User Page</h1>
     <table border="1">
         <tr>
-            <th>項目</th>
-            <th>内容</th>
+            <th>Category</th>
+            <th>Content</th>
         </tr>
         <tr>
             <td>UserName</td>
@@ -27,10 +27,10 @@
     </table>
 
     <form method="get" th:action="@{/home}">
-        <input type="submit" value="Homeへ">
+        <input type="submit" value="Home">
     </form>
     <form method="post" th:action="@{/logout}">
-        <input type="submit" value="ログアウト">
+        <input type="submit" value="logout">
     </form>
 </body>
 </html>
